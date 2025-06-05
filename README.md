@@ -15,3 +15,5 @@
 - No upfront costs or infrastructure management.  
 
 ---
+
+Practical Uses
