@@ -13,3 +13,5 @@
 ### **Pricing:**  
 - **Pay per query**—$5 per terabyte of data scanned.  
 - No upfront costs or infrastructure management.  
+
+---
