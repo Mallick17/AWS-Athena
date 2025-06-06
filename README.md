@@ -51,7 +51,7 @@ Athena queries data directly from Amazon S3, so you need an S3 bucket to store y
 	6	Click Create bucket.
 	7	Upload your data file to the bucket:
 	▪	Click on the newly created bucket name.
-	▪	Click Upload and select a data file, such as a CSV file containing sample data (e.g., order information with columns like order_id, customer_id, amount).
+	▪	Click Upload and select a data file, such as a CSV file containing sample data (e.g., order information with columns like order_id, customer_id, amount).Which is present in this repo.
 	▪	Click Upload to store the file in the bucket.
 	•	Notes:
 	◦	Ensure your data file is in a supported format, such as CSV, JSON, Parquet, ORC, or Avro. CSV is recommended for beginners due to its simplicity.
