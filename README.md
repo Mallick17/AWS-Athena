@@ -16,4 +16,3 @@
 
 ---
 
-### Practical Use Cases of Athena
