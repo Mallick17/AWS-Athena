@@ -69,6 +69,8 @@ This guide walks you through setting up **Amazon Athena** to query files stored 
 > * Avoid placing the file in subfolders.
 > * Supported formats: CSV, JSON, Parquet, ORC, Avro.
 
+![image](https://github.com/user-attachments/assets/710307b2-46b3-423e-bb10-832120d4f5d6)
+
 ---
 
 ### 2. Configure Athena Query Results Location
