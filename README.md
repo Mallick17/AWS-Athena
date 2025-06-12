@@ -129,6 +129,8 @@ Athena queries **tables**, not raw S3 files. A **crawler** reads your data and c
 > 📝 **Check Results:**
 > Go to **Tables** in Glue > confirm table (e.g., `files_for_athena`) with correct schema.
 
+![image](https://github.com/user-attachments/assets/17c19038-7d3b-454f-97ef-3ce554acb5bb)
+
 ---
 
 ### 4. Run Queries in Athena
