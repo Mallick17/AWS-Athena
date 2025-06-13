@@ -400,6 +400,24 @@ df.filter(df['column1'] == 'some_value').select('column1', 'column2').show()
 * This PySpark code will read data from S3, filter rows where `column1` equals `'some_value'`, and display the selected columns.
 
 
+### 3. **Spark SQL (within PySpark or AWS Glue)**
+
+* **Engine**: **Spark SQL** is the module of **Apache Spark** that provides a programming interface for working with structured and semi-structured data. Spark SQL allows you to run SQL queries on data processed by Spark and integrates with other Spark components like DataFrames and Datasets.
+* **Query Language**: Spark SQL uses SQL, similar to Trino SQL. You can use SQL queries to manipulate and analyze data stored in Spark’s distributed framework.
+* **Performance**: Like PySpark, Spark SQL is optimized for distributed data processing. It can scale horizontally, making it suitable for handling very large datasets. However, it is often considered slower than Trino for pure querying workloads because Spark is more focused on distributed data transformation and processing, while Trino is designed for querying across distributed data sources.
+* **Use Case in AWS**: Spark SQL can be used in **Amazon EMR**, **AWS Glue**, and **Amazon Redshift Spectrum**. If you're using Spark SQL in EMR or Glue, you can query large datasets from S3, transform them, and store the results back in S3 or another data lake.
+
+#### Example in Spark SQL:
+
+```sql
+SELECT column1, column2
+FROM my_table
+WHERE column1 = 'some_value'
+```
+
+* This SQL query can be executed within a Spark cluster on EMR or in Spark SQL integrated environments.
+
+
 
 
 
