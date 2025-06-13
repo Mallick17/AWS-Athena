@@ -338,6 +338,22 @@ Each service has its strengths, so you would choose based on the complexity of y
 
 ---
 
+# Athena uses **PrestoDB** (now called **Trino** after a rebranding), but you can interact with it in various ways, such as through **Trino SQL**, **PySpark**, or **Spark SQL**.
 
+### 1. **Trino SQL (Athena Query Language)**
 
+* **Engine**: Athena is primarily built on **Trino** (formerly **Presto**), a distributed SQL query engine designed for high-performance, ad-hoc querying across large datasets. Trino supports querying data from various sources, including Amazon S3, relational databases, and NoSQL stores.
+* **Query Language**: Trino uses SQL as its query language. It adheres closely to SQL standards but has some unique features tailored to distributed querying and integration with multiple data sources.
+* **Performance**: Trino is optimized for large-scale, distributed SQL queries. It supports parallel query execution and can push down queries to different data sources, minimizing data transfer and speeding up queries.
+* **Use Case in Athena**: When you use Athena, you’re essentially writing **Trino SQL** to query your data stored in S3. Athena does not support directly running PySpark or Spark SQL queries, but it does use Trino SQL for querying. Trino allows high flexibility in querying structured, semi-structured, and unstructured data.
+
+#### Example:
+
+```sql
+SELECT column1, column2
+FROM my_table
+WHERE column1 = 'some_value'
+```
+
+* This SQL query will be executed by Athena using Trino (Presto) under the hood.
 
