@@ -361,6 +361,9 @@ Each service has its strengths, so you would choose based on the complexity of y
 | **Scalability**              | High (distributed, but SQL-focused)   | Very High (optimized for big data)           | Very High (optimized for distributed computation) |
 | **Performance**              | Optimized for querying and analytics  | Optimized for transformations and processing | Optimized for complex queries and analytics       |
 
+<details>
+  <summary>Click to View Detailed Explaination of Trino SQL, PySpark, and Spark SQL</summary>
+
 ### 1. **Trino SQL (Athena Query Language)**
 
 * **Engine**: Athena is primarily built on **Trino** (formerly **Presto**), a distributed SQL query engine designed for high-performance, ad-hoc querying across large datasets. Trino supports querying data from various sources, including Amazon S3, relational databases, and NoSQL stores.
@@ -417,7 +420,9 @@ WHERE column1 = 'some_value'
 
 * This SQL query can be executed within a Spark cluster on EMR or in Spark SQL integrated environments.
 
+</details>
 
+---
 
 
 
