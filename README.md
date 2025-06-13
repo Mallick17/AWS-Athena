@@ -339,21 +339,11 @@ Each service has its strengths, so you would choose based on the complexity of y
 ---
 
 # Athena uses **PrestoDB** (now called **Trino** after a rebranding), but you can interact with it in various ways, such as through **Trino SQL**, **PySpark**, or **Spark SQL**.
+### Which One Should You Use?
 
-### 1. **Trino SQL (Athena Query Language)**
+* **Trino SQL (Athena)**: If you are looking for serverless, ad-hoc SQL querying over data stored in S3 (or other integrated data sources), Athena (Trino SQL) is your best option. It’s simple, cost-efficient, and scalable without needing to manage any infrastructure.
 
-* **Engine**: Athena is primarily built on **Trino** (formerly **Presto**), a distributed SQL query engine designed for high-performance, ad-hoc querying across large datasets. Trino supports querying data from various sources, including Amazon S3, relational databases, and NoSQL stores.
-* **Query Language**: Trino uses SQL as its query language. It adheres closely to SQL standards but has some unique features tailored to distributed querying and integration with multiple data sources.
-* **Performance**: Trino is optimized for large-scale, distributed SQL queries. It supports parallel query execution and can push down queries to different data sources, minimizing data transfer and speeding up queries.
-* **Use Case in Athena**: When you use Athena, you’re essentially writing **Trino SQL** to query your data stored in S3. Athena does not support directly running PySpark or Spark SQL queries, but it does use Trino SQL for querying. Trino allows high flexibility in querying structured, semi-structured, and unstructured data.
+* **PySpark**: If your task involves more complex, distributed data processing with transformations, machine learning, or big data analysis, then **PySpark** on **EMR** or **AWS Glue** would be the better choice. It allows you to process data in a distributed environment and supports both batch and streaming analytics.
 
-#### Example:
-
-```sql
-SELECT column1, column2
-FROM my_table
-WHERE column1 = 'some_value'
-```
-
-* This SQL query will be executed by Athena using Trino (Presto) under the hood.
+* **Spark SQL**: If you’re running Spark clusters on **EMR** or using **AWS Glue**, and you need to process large datasets with SQL-like queries within a Spark environment, **Spark SQL** is a powerful choice. It’s great for integrating with other Spark components and performing big data analytics.
 
