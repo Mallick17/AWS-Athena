@@ -361,3 +361,46 @@ Each service has its strengths, so you would choose based on the complexity of y
 | **Scalability**              | High (distributed, but SQL-focused)   | Very High (optimized for big data)           | Very High (optimized for distributed computation) |
 | **Performance**              | Optimized for querying and analytics  | Optimized for transformations and processing | Optimized for complex queries and analytics       |
 
+### 1. **Trino SQL (Athena Query Language)**
+
+* **Engine**: Athena is primarily built on **Trino** (formerly **Presto**), a distributed SQL query engine designed for high-performance, ad-hoc querying across large datasets. Trino supports querying data from various sources, including Amazon S3, relational databases, and NoSQL stores.
+* **Query Language**: Trino uses SQL as its query language. It adheres closely to SQL standards but has some unique features tailored to distributed querying and integration with multiple data sources.
+* **Performance**: Trino is optimized for large-scale, distributed SQL queries. It supports parallel query execution and can push down queries to different data sources, minimizing data transfer and speeding up queries.
+* **Use Case in Athena**: When you use Athena, you’re essentially writing **Trino SQL** to query your data stored in S3. Athena does not support directly running PySpark or Spark SQL queries, but it does use Trino SQL for querying. Trino allows high flexibility in querying structured, semi-structured, and unstructured data.
+
+#### Example:
+
+```sql
+SELECT column1, column2
+FROM my_table
+WHERE column1 = 'some_value'
+```
+
+* This SQL query will be executed by Athena using Trino (Presto) under the hood.
+
+
+### 2. **PySpark (Spark on AWS)**
+
+* **Engine**: **PySpark** refers to the Python API for **Apache Spark**, a big data processing framework. Spark provides both batch and streaming processing capabilities and can scale horizontally. It supports distributed data processing across a cluster of machines.
+* **Query Language**: In PySpark, you can interact with Spark using Python code. You can also use **Spark SQL** within PySpark, which enables SQL-like querying of data within the Spark framework.
+* **Performance**: PySpark excels in scenarios where distributed data processing is required. It has a wide variety of built-in functions for data transformation, machine learning, and analytics, and it's optimized for large-scale data processing jobs. It uses the Spark engine, which is designed for big data workloads, including those requiring advanced analytics, machine learning, and graph processing.
+* **Use Case in AWS**: **PySpark** can be used in various AWS services like **Amazon EMR** (Elastic MapReduce) and **AWS Glue**. While Athena does not natively support PySpark, you can still use PySpark in a custom EMR cluster to process your data and then query it with Athena or store the results back in Amazon S3.
+
+#### Example in PySpark:
+
+```python
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName('ExampleApp').getOrCreate()
+df = spark.read.csv('s3://my-bucket/my-data.csv')
+
+df.filter(df['column1'] == 'some_value').select('column1', 'column2').show()
+```
+
+* This PySpark code will read data from S3, filter rows where `column1` equals `'some_value'`, and display the selected columns.
+
+
+
+
+
+
