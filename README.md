@@ -347,3 +347,17 @@ Each service has its strengths, so you would choose based on the complexity of y
 
 * **Spark SQL**: If you’re running Spark clusters on **EMR** or using **AWS Glue**, and you need to process large datasets with SQL-like queries within a Spark environment, **Spark SQL** is a powerful choice. It’s great for integrating with other Spark components and performing big data analytics.
 
+### Key Differences
+
+| Feature                      | **Trino SQL (Athena)**                | **PySpark (Spark on AWS)**                   | **Spark SQL**                                     |
+| ---------------------------- | ------------------------------------- | -------------------------------------------- | ------------------------------------------------- |
+| **Engine**                   | Trino (formerly Presto)               | Apache Spark                                 | Apache Spark                                      |
+| **Query Language**           | SQL                                   | Python API (with Spark SQL)                  | SQL                                               |
+| **Execution Environment**    | Serverless (Athena)                   | Distributed clusters (EMR, Glue)             | Distributed clusters (EMR, Glue)                  |
+| **Integration**              | AWS S3 and various data sources       | AWS S3, HDFS, and other big data sources     | AWS S3, HDFS, and other data lakes                |
+| **Use Case**                 | Ad-hoc SQL queries over S3 data       | Batch and streaming data processing          | Data transformation, analytics                    |
+| **Optimization**             | Parallel querying and source pushdown | In-memory computation, parallelized tasks    | In-memory computation, optimized queries          |
+| **Native Support in Athena** | Yes                                   | No                                           | No                                                |
+| **Scalability**              | High (distributed, but SQL-focused)   | Very High (optimized for big data)           | Very High (optimized for distributed computation) |
+| **Performance**              | Optimized for querying and analytics  | Optimized for transformations and processing | Optimized for complex queries and analytics       |
+
